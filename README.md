@@ -5,6 +5,7 @@
    * [Reverse a Number](#problem-4---reverse-a-number)
    * [Palindrome](#problem-5---palindrome)
    * [Prime or not (input from the user)](#problem-6---prime-or-not-input-from-the-user)
+   * [Leap Year Check](#problem-7---java-program-to-check-leap-year)
 
 ### Problem 1 - Remove special characters from a given string and count the number of special characters in the string.
 
@@ -276,6 +277,77 @@ public class CodeXam{
     }
   }
 }
+```
+
+### Problem 7 - Java Program to Check Leap Year
+
+###### Source
+Topic : Numeric  Level : Easy
+
+Tips:
+```java
+However, there is still a small error that must be accounted for. To eliminate this error, 
+the Gregorian calendar stipulates that a year that is evenly divisible by 100 (for example, 1900)
+is a leap year only if it is also evenly divisible by 400.
+
+For this reason, the following years are not leap years:
+
+1700, 1800, 1900, 2100, 2200, 2300, 2500, 2600
+
+This is because they are evenly divisible by 100 but not by 400.
+
+The following years are leap years: 1600, 2000, 2400
+
+This is because they are evenly divisible by both 100 and 400.
+```
+
+```CodeXam.java```
+
+```java
+//Approach 1
+import java.util.Scanner;
+public class CodeXam {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int year = sc.nextInt();
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+            System.out.println(year + " : is a leap year");
+        }
+        else {System.out.println(year + " : is not a leap year.");
+        }
+    }
+}
 
 
+//Approach 2
+import java.util.Scanner;
+public class CodeXam {
+  public static void main(String[] args)
+  {
+    int year;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter a year");
+    year = sc.nextInt();
+    if (year % 4 == 0)
+    {
+      if (year % 100 != 0)
+      {
+        System.out.println("It's a leap year !");
+      }
+      else if (year % 400 == 0)
+      {
+        System.out.println("It's a leap year !");
+      }
+      else
+      {
+        System.out.println("It's not a leap year");
+      }
+    }
+    else
+    {
+      System.out.println("It's not a leap year");
+    }
+  }
+}
 ```
