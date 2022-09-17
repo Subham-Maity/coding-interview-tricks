@@ -1,4 +1,7 @@
-### Chapters 
+## Interviewers ask these questions frequently, so practice it as many times as you can
+### Writer : [CodeXam](https://github.com/Subham-Maity)
+
+### Questions List
    * [Remove special characters](#problem-1---remove-special-characters-from-a-given-string-and-count-the-number-of-special-characters-in-the-string)
    * [String is rotation of another String](#problem-2---check-if-one-string-is-rotation-of-another-string)
    * [Reverse a String.](#problem-3---reverse-a-string)
@@ -6,6 +9,8 @@
    * [Palindrome](#problem-5---palindrome)
    * [Prime or not (input from the user)](#problem-6---prime-or-not-input-from-the-user)
    * [Leap Year Check](#problem-7---java-program-to-check-leap-year)
+   * [find Largest among entered numbers](#problem-8---write-a-program-to-find-largest-among-entered-numbers)
+   * [Fibonacci Series](#problem-9---fibonacci-series-using-recursion)
 
 ### Problem 1 - Remove special characters from a given string and count the number of special characters in the string.
 
@@ -351,3 +356,125 @@ public class CodeXam {
   }
 }
 ```
+### Problem 8 - Write a Program to find Largest among entered numbers
+
+###### Source
+Topic : String  Level : Easy
+
+Tips: Store the number in an array and then compare the numbers in the array to find the largest number.
+
+```CodeXam.java```
+
+```java
+import java.util.Scanner;
+public class CodeXam {
+    public static void main(String[] args){
+        int n, max;
+       Scanner s = new Scanner(System.in);
+       System.out.print("Enter no. of elements you want in array:");
+         n = s.nextInt();
+        int a[] = new int[n];
+       System.out.println("Enter all the elements:");
+        for(int i = 0; i < n; i++)
+        {
+            a[i] = s.nextInt();
+        }
+        max = a[0];
+        for(int i = 0; i < n; i++)
+        {
+            if(max < a[i])
+            {
+                max = a[i];
+            }
+        }
+        System.out.println("Maximum value:"+max);
+    }
+}
+```
+### Problem 9 - Fibonacci Series using Recursion
+
+###### Source
+Topic : Recursion Level : Easy
+
+Tips: 
+
+```java
+
+Supppose we want 7th index position fibonacci so here 7 is our nth postion
+        now 13 is the 7th fibonachhi number
+        so n = 7 and result will be 13
+
+        explain:
+
+        fib(n-1) means fib(7-1) = fib 6th position index
+        so, 6th position index is 8
+
+        fib(n-2) means fib(7-2) = fib 5th position index
+        so, 5th position index is 5
+
+
+        now,
+        fib(n-1)+fib(n-2)
+
+        fib(7-1)+fib(7-2)
+
+        8  +  6
+
+        = 13
+        
+        Tree Visualization:
+        
+        
+                          fib(5) 
+                    _______________________
+                     /                \
+               fib(4)                fib(3)   
+             /        \              /       \ 
+         fib(3)      fib(2)         fib(2)   fib(1)
+        /    \       /    \        /      \
+  fib(2)   fib(1)  fib(1) fib(0) fib(1) fib(0)
+  /     \
+fib(1) fib(0)
+Optimized tree for recursion for code above
+
+    fib(5) 
+
+    fib(4)
+
+    fib(3)
+
+    fib(2)
+
+    fib(1)
+```
+
+```CodeXam.java```
+
+```java
+//Approach 1
+public class CodeXam {
+    public static int fib(int n) {
+        if(n == 1|| n==2)
+            return n-1;
+        else
+            return fib(n-1)+fib(n-2);
+    }
+    public static void main(String args[]) {
+        System.out.println(fib(8));
+    }
+}
+
+//Approach 2
+public class CodeXam {
+    public static int fib(int n) {
+        if(n == 0||n == 1)
+            return n;
+        else
+            return fib(n-1)+fib(n-2);
+    }
+    public static void main(String args[]) {
+        System.out.println(fib(8));
+    }
+}
+```
+
